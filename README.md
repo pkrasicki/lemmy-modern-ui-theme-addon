@@ -1,6 +1,8 @@
 # Lemmy Modern UI Theme
 This Firefox extension replaces the CSS styles on Lemmy instances to create a modern looking theme.
 
+https://addons.mozilla.org/firefox/addon/lemmy-modern-ui-theme
+
 ![main page](screenshots/main-page2.png)
 
 ![post 1](screenshots/post1.png)
