@@ -194,7 +194,8 @@
 				"*://fuzzy.directory/*",
 				"*://lem.ph3j.com/*",
 				"*://purrito.kamartaj.xyz/*",
-				"*://lemmy.thebitpros.com/*"
+				"*://lemmy.thebitpros.com/*",
+				"*://feddit.cl/*"
 			]
 		}
 	]
