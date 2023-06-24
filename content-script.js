@@ -12,6 +12,7 @@ const themeStyles = (isLightTheme) => `
 			--custom-tabs-text-color: rgb(73, 80, 87);
 			--custom-bg-color: #f4f4f4;
 			--custom-main-bg-color: white;
+			--custom-comment-left-border: rgba(0, 0, 0, 0.1);
 		}
 	` : `
 		:root
@@ -21,6 +22,7 @@ const themeStyles = (isLightTheme) => `
 			--custom-tabs-text-color: #dee2e6;
 			--custom-bg-color: #222;
 			--custom-main-bg-color: #171717;
+			--custom-comment-left-border: rgba(255, 255, 255, 0.1);
 		}
 	`}
 
@@ -55,9 +57,9 @@ const themeStyles = (isLightTheme) => `
 		color: var(--custom-primary) !important;
 	}
 
-	.primary, .badge-primary, .btn-primary
+	.primary, .badge-primary, .btn-primary, .text-bg-primary
 	{
-		background-color: var(--custom-primary);
+		background-color: var(--custom-primary) !important;
 		border-color: var(--custom-primary);
 	}
 
@@ -74,9 +76,9 @@ const themeStyles = (isLightTheme) => `
 			color: var(--custom-secondary) !important;
 		}
 
-		.secondary, .badge-secondary, .btn-secondary
+		.secondary, .badge-secondary, .btn-secondary, .text-bg-secondary
 		{
-			background-color: var(--custom-secondary);
+			background-color: var(--custom-secondary) !important;
 			border-color: var(--custom-secondary);
 		}
 
@@ -134,19 +136,25 @@ const themeStyles = (isLightTheme) => `
 		padding-top: 12px;
 	}
 
-	.comments
-	{
-		display: flex;
-		flex-direction: column;
-		gap: 20px;
-	}
-
+	/* form field */
 	.form-control:focus
 	{
 		box-shadow: none;
 	}
 
-	/* dropdown */
+	/* community search dropdown in 0.17 */
+	.custom-select:focus
+	{
+		box-shadow: none;
+	}
+
+	/* community search dropdown in 0.18 */
+	.form-select:focus
+	{
+		box-shadow: none;
+	}
+
+	/* dropdown option */
 	.choices__inner.bg-secondary, .choices__list .choices__item.bg-secondary
 	{
 		background: transparent !important;
@@ -155,23 +163,82 @@ const themeStyles = (isLightTheme) => `
 
 const changeClasses = () =>
 {
-	// add class to the main section
-	document.querySelector("main:not(.card)")?.classList.add("card");
+	// list of posts on the main page
+	document.querySelector("main[role=main]:not(.card)")?.classList.add("card");
 
-	// change sidebar buttons
+	// list of community posts in 0.18
+	document.querySelector(".community .post-listings:not(.card)")?.classList.add("card");
+
+	// sidebar buttons on main page
 	document.querySelectorAll("aside .btn-secondary").forEach((button) =>
 	{
 		button.classList.remove("btn-secondary");
 		button.classList.add("btn-outline-secondary");
 	});
 
-	// change the post
-	document.querySelector(".post-listing:not(.card)")?.classList.add("card");
+	// user post in 0.18
+	const userPost = document.querySelector(".post .post-listing:first-child:not(.card)");
+	userPost?.classList.add("card");
+	userPost?.classList.remove("mt-2");
 
-	// change comments
-	document.querySelector(".comments:first-child:not(.card)")?.classList.add("card", "p-2");
+	// user profile in 0.18 - activity
+	document.querySelector(".person-details:not(.card)")?.classList.add("card");
 
-	// change create post page
+	// comments container (in user post and profile page)
+	const commentsContainer = document.querySelector(".comments:first-child:not(.card)")?.parentElement;
+	if (commentsContainer && !commentsContainer.classList.contains("card"))
+	{
+		commentsContainer.classList.add("card", "p-2");
+	}
+
+	// commment in 0.17 - indentation
+	document.querySelectorAll(".comments .comment.ml-1").forEach((comment) =>
+	{
+		comment.classList.remove("ml-1");
+		comment.classList.add("ml-2");
+
+		// border
+		const commentNode = comment.querySelector("div[id^=comment-]");
+		commentNode?.classList?.remove("py-2");
+		commentNode?.classList?.add("my-2");
+		commentNode?.style?.setProperty("border-left-color", "var(--custom-comment-left-border)", "important");
+	});
+
+	// commment - margin in 0.18
+	document.querySelectorAll(".post article[id^=comment-].py-2").forEach((comment) =>
+	{
+		comment.classList.remove("py-2");
+		comment.classList.add("mb-4");
+	});
+
+	// commment - border in 0.18
+	document.querySelectorAll("ul.comments.border-top").forEach((commentThread) =>
+	{
+		commentThread.classList.remove("border-top");
+
+		// is nested
+		if (commentThread.classList.contains("ms-1"))
+		{
+			commentThread.classList.remove("ms-1");
+			commentThread.classList.add("ms-3");
+		}
+
+		commentThread.style.setProperty("border-left-color", "var(--custom-comment-left-border)", "important");
+	});
+
+	// commment (user profile) - border in 0.18
+	document.querySelectorAll(".person-details ul.comments").forEach((commentThread) =>
+	{
+		commentThread.style.setProperty("border-left-color", "transparent", "important");
+	});
+
+	// communities - search in 0.18
+	document.querySelector("main .search:not(.card)")?.classList.add("card");
+
+	// communities - table
+	document.querySelector("#community_table:not(.card)")?.classList.add("card", "d-table");
+
+	// create post page
 	document.querySelector(".container-lg .row .col-12.col-lg-6.offset-lg-3.mb-4:first-child:not(.card)")?.classList.add("card", "p-2");
 };
 
