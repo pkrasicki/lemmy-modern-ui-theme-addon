@@ -1,0 +1,65 @@
+:root
+{
+	--custom-primary: #ce4500;
+	--custom-secondary: #007d34;
+	--custom-secondary-light: #00a243;
+	--custom-info: #0066d2;
+	--custom-tabs-color: rgb(73, 80, 87);
+	--custom-tabs-text-color: rgb(73, 80, 87);
+	--custom-bg-color: #f4f4f4;
+	--custom-main-bg-color: white;
+	--custom-comment-left-border: rgba(0, 0, 0, 0.09);
+	--blockquote-left-border: rgba(0, 0, 0, 0.2);
+}
+
+blockquote
+{
+	border-color: var(--blockquote-left-border);
+}
+
+.text-secondary
+{
+	color: var(--custom-secondary) !important;
+}
+
+.secondary, .badge-secondary, .btn-secondary, .text-bg-secondary
+{
+	background-color: var(--custom-secondary);
+	border-color: var(--custom-secondary);
+}
+
+.badge.text-bg-secondary
+{
+	background-color: var(--custom-secondary) !important;
+}
+
+.btn-secondary:not(:disabled):hover
+{
+	background-color: var(--custom-secondary-light);
+	border-color: var(--custom-secondary-light);
+}
+
+.btn-outline-secondary
+{
+	&:not(:hover)
+	{
+		color: var(--custom-secondary);
+		border-color: var(--custom-secondary);
+	}
+
+	&:not(:disabled):hover
+	{
+		background-color: var(--custom-secondary-light);
+		border-color: var(--custom-secondary-light);
+	}
+}
+
+.btn-group.btn-group-toggle .btn-outline-secondary.active
+{
+	color: white;
+}
+
+.text-info
+{
+	color: var(--custom-info) !important;
+}

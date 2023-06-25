@@ -1,0 +1,34 @@
+{
+  "name": "lemmy-modern-ui-theme",
+  "version": "1.0.0",
+  "description": "This Firefox extension replaces the CSS styles on Lemmy instances to create a modern looking theme.",
+  "main": "content-script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-style-common": "sass --no-source-map ./theme/common.scss ./dist/common.css",
+    "build-style-light": "sass --no-source-map ./theme/light.scss ./dist/light.css",
+    "build-style-dark": "sass --no-source-map ./theme/dark.scss ./dist/dark.css",
+    "build-styles": "npm run build-style-common && npm run build-style-light && npm run build-style-dark",
+    "build-addon": "zip -r -FS lemmy-modern-ui-theme.zip 'content-script.js' 'manifest.json' 'LICENSE' 'dist/common.css' 'dist/content-script.js'",
+    "build": "webpack && npm run build-style-common && npm run build-addon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pkrasicki/lemmy-modern-ui-theme-addon.git"
+  },
+  "keywords": [],
+  "author": "pkrasicki",
+  "license": "GPL-3.0-only",
+  "bugs": {
+    "url": "https://github.com/pkrasicki/lemmy-modern-ui-theme-addon/issues"
+  },
+  "homepage": "https://github.com/pkrasicki/lemmy-modern-ui-theme-addon#readme",
+  "devDependencies": {
+    "css-loader": "^6.8.1",
+    "sass": "^1.63.6",
+    "sass-loader": "^13.3.2",
+    "to-string-loader": "^1.2.0",
+    "webpack": "^5.88.0",
+    "webpack-cli": "^5.1.4"
+  }
+}

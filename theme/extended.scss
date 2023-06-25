@@ -1,0 +1,66 @@
+// Lemmy classes that we use with @extend - some are modified
+
+.card
+{
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+	word-wrap: break-word;
+	background-color: var(--custom-main-bg-color);
+	background-clip: border-box;
+	border: 1px solid transparent !important;
+	border-radius: .5rem;
+}
+
+.btn-outline-secondary
+{
+	border-color: var(--secondary);
+
+	&:not(:hover)
+	{
+		color: var(--secondary);
+	}
+
+	&:not(:disabled):hover
+	{
+		background-color: var(--secondary);
+	}
+}
+
+.mt-0
+{
+	margin-top: 0 !important;
+}
+
+.ml-2
+{
+	margin-left: .5rem !important;
+}
+
+.ms-3
+{
+	margin-left: 1rem !important;
+}
+
+.my-2
+{
+	margin-top: .5rem !important;
+	margin-bottom: .5rem !important;
+}
+
+.mb-4
+{
+	margin-bottom: 1.5rem !important;
+}
+
+.py-0
+{
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+}
+
+.p-2
+{
+	padding: .5rem !important;
+}

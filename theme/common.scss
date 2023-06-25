@@ -1,0 +1,186 @@
+// styles used by both themes
+
+@import "extended";
+
+@mixin secondary-button-to-outline {
+	--secondary: var(--custom-secondary);
+	@extend .btn-outline-secondary;
+
+	&:not(:hover)
+	{
+		background-color: transparent !important;
+	}
+}
+
+body
+{
+	background-color: var(--custom-bg-color);
+}
+
+nav
+{
+	background-color: var(--custom-main-bg-color);
+}
+
+main
+{
+	padding-top: 10px;
+}
+
+a
+{
+	color: var(--custom-primary);
+}
+
+blockquote
+{
+	border-left-width: 4px;
+	padding: 0.1em 8px;
+}
+
+.text-primary
+{
+	color: var(--custom-primary) !important;
+}
+
+.primary, .badge-primary, .btn-primary, .text-bg-primary
+{
+	background-color: var(--custom-primary) !important;
+	border-color: var(--custom-primary);
+}
+
+.btn-group.btn-group-toggle .btn-outline-secondary:not(.active)
+{
+	color: var(--custom-tabs-text-color);
+	border-color: var(--custom-tabs-color);
+
+	&:not(:disabled):hover
+	{
+		color: white;
+		background-color: var(--custom-tabs-color);
+	}
+}
+
+.btn-group.btn-group-toggle .btn-outline-secondary.active
+{
+	background-color: var(--custom-tabs-color);
+	border-color: var(--custom-tabs-color);
+}
+
+.post-listing
+{
+	padding-top: 12px;
+}
+
+.form-control:focus, // form field
+.custom-select:focus, // community search dropdown in 0.17
+.form-select:focus // community search dropdown in 0.18
+{
+	box-shadow: none;
+}
+
+// dropdown option
+.choices__inner.bg-secondary, .choices__list .choices__item.bg-secondary
+{
+	background: transparent !important;
+}
+
+main[role=main], // list of posts on the main page
+.community .post-listings, // list of community posts in 0.18
+.col-12.col-md-8:not(.mb-3), // list of community posts in 0.17
+.person-details, // activity list in user profile in 0.18
+.col-12.col-md-8.mb-3 > .post-listing:first-child // user post in 0.17
+{
+	@extend .card;
+}
+
+// sidebar buttons on main page
+aside .btn-secondary
+{
+	@include secondary-button-to-outline;
+}
+
+// user post in 0.18
+.post .post-listing:first-child
+{
+	@extend .card;
+	@extend .mt-0;
+}
+
+// comments container in user post
+div.col-12.col-md-8.mb-3 > div:not([class]):last-child
+{
+	@extend .card;
+	@extend .p-2;
+}
+
+// commment in 0.17 - indentation
+.comments .comment.ml-1
+{
+	@extend .ml-2;
+
+	// border
+	& div[id^=comment-]
+	{
+		@extend .py-0;
+		@extend .my-2;
+
+		// TODO: this probably won't be enough
+		border-left-color: var(--custom-comment-left-border) !important;
+	}
+}
+
+// commment - margin in 0.18
+.post article[id^=comment-].py-2
+{
+	@extend .py-0;
+	@extend .mb-4;
+}
+
+// commment - border in 0.18
+ul.comments.border-top
+{
+	&.ms-1
+	{
+		@extend .ms-3;
+	}
+
+	// TODO: this probably won't be enough
+	border-left-color: var(--custom-comment-left-border) !important;
+}
+
+// commment (user profile) - border in 0.18
+.person-details ul.comments
+{
+	border-left-color: transparent !important; // make it invisible
+}
+
+// communities - search in 0.18
+main .search
+{
+	@extend .card;
+}
+
+// communities - table
+#community_table
+{
+	@extend .card;
+	display: table;
+}
+
+// create post page
+.container-lg .row .col-12.col-lg-6.offset-lg-3.mb-4:first-child
+{
+	@extend .card;
+	@extend .p-2;
+}
+
+// reply form
+form[id^=comment-form-]
+{
+	// cancel and preview button
+	& .btn-secondary:nth-child(2), .btn-secondary:nth-child(3)
+	{
+		@include secondary-button-to-outline;
+	}
+}

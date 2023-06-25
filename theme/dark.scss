@@ -1,0 +1,49 @@
+:root
+{
+	--custom-primary: #49ce9d;
+	--custom-primary-light: #4fdda9;
+	--custom-primary-dark: #38a57d;
+	--custom-secondary-light: rgb(54, 54, 54);
+	--custom-tabs-color: rgb(49, 49, 49);
+	--custom-tabs-text-color: #dee2e6;
+	--custom-bg-color: #222;
+	--custom-main-bg-color: #171717;
+	--custom-comment-left-border: rgba(255, 255, 255, 0.1);
+}
+
+a:not(.btn)
+{
+	&:not(:disabled):hover
+	{
+		color: var(--custom-primary-light);
+
+		&.text-primary
+		{
+			color: var(--custom-primary-light) !important;
+		}
+	}
+}
+
+.btn-secondary
+{
+	&:not(:hover)
+	{
+		background-color: var(--custom-tabs-color);
+		border-color: var(--custom-tabs-color);
+	}
+
+	&:not(:disabled):hover
+	{
+		background-color: var(--custom-secondary-light) !important;
+		border-color: var(--custom-secondary-light);
+	}
+}
+
+.primary, .badge-primary, .btn-primary, .text-bg-primary
+{
+	&:not(:disabled)
+	{
+		background-color: var(--custom-primary-dark) !important;
+		border-color: var(--custom-primary-dark);
+	}
+}
