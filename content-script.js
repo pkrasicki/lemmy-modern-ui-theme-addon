@@ -1,8 +1,6 @@
 import lightTheme from "./theme/light.scss";
 import darkTheme from "./theme/dark.scss";
 
-let isThemeApplied = false;
-
 // remove inline styles so that we can override them in CSS
 const removeInlineStyles = () =>
 {
@@ -63,7 +61,6 @@ const main = () =>
 	observer.observe(document.body, { childList: true, subtree: true });
 
 	removeInlineStyles(); // run on initial page load
-	isThemeApplied = true;
 };
 
 main();
