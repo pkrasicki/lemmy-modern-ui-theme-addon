@@ -9,6 +9,15 @@
 	--custom-bg-color: #222;
 	--custom-main-bg-color: #171717;
 	--custom-comment-left-border: rgba(255, 255, 255, 0.1);
+
+	--bs-warning-text-emphasis: #fff;
+	--bs-warning-bg-subtle: #44423f;
+	--bs-warning-border-subtle: #44423f;
+	--bs-info-text-emphasis: #fff;
+	--bs-info-bg-subtle: #2f3235;
+	--bs-info-border-subtle: #2f3235;
+	--bs-body-bg: var(--custom-main-bg-color);
+	--bs-code-color: #ff9fcf;
 }
 
 a:not(.btn)
