@@ -2,7 +2,8 @@
 
 @import "extended";
 
-@mixin secondary-button-to-outline {
+@mixin secondary-button-to-outline
+{
 	--secondary: var(--custom-secondary);
 	@extend .btn-outline-secondary;
 
@@ -86,10 +87,12 @@ blockquote
 }
 
 main[role=main], // list of posts on the main page
-.community .post-listings, // list of community posts in 0.18
-.col-12.col-md-8:not(.mb-3), // list of community posts in 0.17
-.person-details, // activity list in user profile in 0.18
-.col-12.col-md-8.mb-3 > .post-listing:first-child // user post in 0.17
+.community .post-listings, // list of community posts (0.18)
+.col-12.col-md-8:not(.mb-3), // list of community posts (0.17)
+.person-details, // activity list in user profile (0.18)
+.col-12.col-md-8.mb-3 > .post-listing:first-child, // user post (0.17)
+.modlog, // (0.18)
+.home-instances // instance list (0.18)
 {
 	@extend .card;
 }
@@ -183,4 +186,9 @@ form[id^=comment-form-]
 	{
 		@include secondary-button-to-outline;
 	}
+}
+
+.modlog, .home-instances
+{
+	@extend .pt-2;
 }
