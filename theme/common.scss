@@ -117,30 +117,33 @@ div.col-12.col-md-8.mb-3 > div:not([class]):last-child
 	@extend .p-2;
 }
 
-// commment in 0.17 - indentation
+// commment (0.17) - indentation
 .comments .comment.ml-1
 {
 	@extend .ml-2;
 
-	// border
 	& div[id^=comment-]
 	{
 		@extend .py-0;
 		@extend .my-2;
-
-		// TODO: this probably won't be enough
-		border-left-color: var(--custom-comment-left-border) !important;
 	}
 }
 
-// commment - margin in 0.18
+// comment - top border (0.17 and 0.18)
+[id^=comment-]
+{
+	border-left-color: var(--custom-comment-left-border) !important;
+	border-top-color: transparent !important;
+}
+
+// commment - margin (0.18)
 .post article[id^=comment-].py-2
 {
 	@extend .py-0;
 	@extend .mb-4;
 }
 
-// commment - border in 0.18
+// commment - border (0.18)
 ul.comments.border-top
 {
 	&.ms-1
@@ -148,17 +151,17 @@ ul.comments.border-top
 		@extend .ms-3;
 	}
 
-	// TODO: this probably won't be enough
 	border-left-color: var(--custom-comment-left-border) !important;
+	border-top-color: transparent !important;
 }
 
-// commment (user profile) - border in 0.18
+// commment (user profile) - border (0.18)
 .person-details ul.comments
 {
 	border-left-color: transparent !important; // make it invisible
 }
 
-// communities - search in 0.18
+// communities - search (0.18)
 main .search
 {
 	@extend .card;
