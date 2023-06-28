@@ -8,7 +8,7 @@
 	[
 		{
 			"js": ["dist/content-script.js"],
-			"css": ["dist/common.css"],
+			"css": ["dist/_common.css"],
 			"matches":
 			[
 				"*://lemmy.world/*",

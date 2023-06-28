@@ -3,11 +3,13 @@ This Firefox extension replaces the CSS styles on Lemmy instances to create a mo
 
 https://addons.mozilla.org/firefox/addon/lemmy-modern-ui-theme
 
-## Building The Addon
+![main page](screenshots/main-page.png)
+
+## Building
 ### Prerequisites
 - [Node.js 18.x](https://nodejs.org)
 
-### Building
+### Building The Addon
 Install dependencies:
 
 ```
@@ -19,17 +21,23 @@ Build the addon:
 npm run build
 ```
 
-### Building CSS Only
-To build all the styles, so that you could use them on your instance:
+### Building The Theme Only
+You can build the CSS styles to use them on your Lemmy instance (you can also [get them from Releases page](https://github.com/pkrasicki/lemmy-modern-ui-theme-addon/releases)):
 ```
-npm run build-styles
+npm run build-theme
 ```
 
-The CSS files will appear in the `dist` folder.
+The following files will appear in the `dist` folder:
+
+`modern-light.css` - light theme only
+
+`modern-dark.css` - dark theme only
+
+`modern-auto.css` - contains both themes and switches between them automatically depending on user's current system settings (the default Lemmy theme works the same way)
+
+In order to use the theme on your instance, put the chosen CSS files into the `extra_themes` folder or [follow the documentation](https://join-lemmy.org/docs/administration/theming.html).
 
 ## Screenshots
-
-![main page](screenshots/main-page.png)
 
 ![post 1](screenshots/post1.png)
 

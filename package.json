@@ -5,12 +5,12 @@
   "main": "content-script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-style-common": "sass --no-source-map ./theme/common.scss ./dist/common.css",
-    "build-style-light": "sass --no-source-map ./theme/light.scss ./dist/light.css",
-    "build-style-dark": "sass --no-source-map ./theme/dark.scss ./dist/dark.css",
-    "build-styles": "npm run build-style-common && npm run build-style-light && npm run build-style-dark",
-    "build-addon": "zip -r -FS lemmy-modern-ui-theme.zip 'manifest.json' 'LICENSE' 'dist/common.css' 'dist/content-script.js'",
-    "build": "webpack && npm run build-style-common && npm run build-addon"
+    "build-css-common": "sass --no-source-map ./theme/common.scss ./dist/_common.css",
+    "build-css-light": "sass --no-source-map ./theme/light.scss ./dist/_light.css",
+    "build-css-dark": "sass --no-source-map ./theme/dark.scss ./dist/_dark.css",
+    "build-theme": "npm run build-css-light && npm run build-css-dark && npm run build-css-common && node build-theme.js",
+    "build-addon": "zip -r -FS lemmy-modern-ui-addon.zip 'manifest.json' 'LICENSE' 'dist/_common.css' 'dist/content-script.js'",
+    "build": "webpack && npm run build-css-common && npm run build-addon"
   },
   "repository": {
     "type": "git",
