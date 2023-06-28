@@ -56,3 +56,14 @@ a:not(.btn)
 		border-color: var(--custom-primary-dark);
 	}
 }
+
+.form-control
+{
+	background-color: var(--custom-main-bg-color);
+	border-color: #403e3e;
+
+	&:focus
+	{
+		background-color: var(--custom-main-bg-color);
+	}
+}

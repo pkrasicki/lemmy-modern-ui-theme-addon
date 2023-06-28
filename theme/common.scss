@@ -130,7 +130,7 @@ div.col-12.col-md-8.mb-3 > div:not([class]):last-child
 }
 
 // comment - top border (0.17 and 0.18)
-[id^=comment-]
+div[id^=comment-], article[id^=comment-]
 {
 	border-left-color: var(--custom-comment-left-border) !important;
 	border-top-color: transparent !important;
