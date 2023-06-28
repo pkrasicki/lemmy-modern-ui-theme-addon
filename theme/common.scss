@@ -92,7 +92,8 @@ main[role=main], // list of posts on the main page
 .person-details, // activity list in user profile (0.18)
 .col-12.col-md-8.mb-3 > .post-listing:first-child, // user post (0.17)
 .modlog, // (0.18)
-.home-instances // instance list (0.18)
+.home-instances, // instance list (0.18)
+.communities // (0.18)
 {
 	@extend .card;
 }
@@ -194,4 +195,11 @@ form[id^=comment-form-]
 .modlog, .home-instances
 {
 	@extend .pt-2;
+}
+
+.card-header
+{
+	background-color: transparent;
+	border-bottom: none;
+	padding-bottom: 0;
 }
