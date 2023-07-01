@@ -105,6 +105,13 @@ aside .btn-secondary
 	@include secondary-button-to-outline;
 }
 
+// sidebar - block button (0.18)
+aside .btn-danger
+{
+	--bs-btn-bg: transparent;
+	--bs-btn-color: var(--bs-btn-border-color);
+}
+
 // user post in 0.18
 .post .post-listing:first-child
 {
