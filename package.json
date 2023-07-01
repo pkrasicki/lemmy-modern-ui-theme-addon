@@ -8,7 +8,7 @@
     "build-css-common": "sass --no-source-map ./theme/common.scss ./dist/_common.css",
     "build-css-light": "sass --no-source-map ./theme/light.scss ./dist/_light.css",
     "build-css-dark": "sass --no-source-map ./theme/dark.scss ./dist/_dark.css",
-    "build-theme": "npm run build-css-light && npm run build-css-dark && npm run build-css-common && node build-theme.js",
+    "build-theme": "npm run build-css-light && npm run build-css-dark && npm run build-css-common && node ./tools/build-theme.js",
     "build-addon": "zip -r -FS lemmy-modern-ui-addon.zip 'manifest.json' 'LICENSE' 'dist/_common.css' 'dist/content-script.js'",
     "build": "webpack && npm run build-css-common && npm run build-addon"
   },

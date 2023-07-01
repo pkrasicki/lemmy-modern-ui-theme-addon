@@ -1,13 +1,15 @@
 const path = require("path");
 const fs = require("fs");
 const { autoTheme, autoThemeHeader } = require("./auto-theme-template");
+
 const LEMMY_DEFAULT_LIGHT_THEME_FILE_NAME = "litely.css";
 const LEMMY_DEFAULT_DARK_THEME_FILE_NAME = "darkly.css";
+const BUILD_FOLDER_PATH = "./dist";
+const OUTPUT_FILE_PREFIX = `modern-`;
 
 const manifest = fs.readFileSync("./manifest.json");
 const THEME_VERSION = JSON.parse(manifest).version;
 const VERSION_CSS_COMMENT = `/* Modern UI Theme ${THEME_VERSION} */`;
-const OUTPUT_FILE_PREFIX = `modern-`;
 
 const readFileAsync = async (filePath) =>
 {
@@ -33,7 +35,7 @@ const themeHeader = (string, importUrls) =>
 // builds a single theme
 const buildTheme = async (fileNames, importUrls, outputFileName) =>
 {
-	const promises = fileNames.map((fileName) => readFileAsync(path.resolve("./dist", fileName)));
+	const promises = fileNames.map((fileName) => readFileAsync(path.resolve(BUILD_FOLDER_PATH, fileName)));
 
 	try
 	{
@@ -41,7 +43,7 @@ const buildTheme = async (fileNames, importUrls, outputFileName) =>
 		const mergedFiles = files.join("\n");
 		const theme = themeHeader(mergedFiles, importUrls);
 
-		fs.writeFile(path.resolve("./dist", outputFileName), theme, (err) =>
+		fs.writeFile(path.resolve(BUILD_FOLDER_PATH, outputFileName), theme, (err) =>
 		{
 			if (err)
 				console.error("Couldn't write file", err);
@@ -56,18 +58,18 @@ const buildTheme = async (fileNames, importUrls, outputFileName) =>
 // builds a theme that contains both light and dark theme with media queries
 const buildAutoTheme = async (commonFileNames, lightThemeFileName, darkThemeFileName, outputFileName) =>
 {
-	const promises = commonFileNames.map((fileName) => readFileAsync(path.resolve("./dist", fileName)));
+	const promises = commonFileNames.map((fileName) => readFileAsync(path.resolve(BUILD_FOLDER_PATH, fileName)));
 
 	try
 	{
 		const commonFiles = await Promise.all(promises);
-		const lightThemeContent = await readFileAsync(path.resolve("./dist", lightThemeFileName));
-		const darkThemeContent = await readFileAsync(path.resolve("./dist", darkThemeFileName));
+		const lightThemeContent = await readFileAsync(path.resolve(BUILD_FOLDER_PATH, lightThemeFileName));
+		const darkThemeContent = await readFileAsync(path.resolve(BUILD_FOLDER_PATH, darkThemeFileName));
 
 		const header = autoThemeHeader(VERSION_CSS_COMMENT, LEMMY_DEFAULT_LIGHT_THEME_FILE_NAME, LEMMY_DEFAULT_DARK_THEME_FILE_NAME);
 		const theme = autoTheme(header, commonFiles.join("\n"), lightThemeContent, darkThemeContent);
 
-		fs.writeFile(path.resolve("./dist", outputFileName), theme, (err) =>
+		fs.writeFile(path.resolve(BUILD_FOLDER_PATH, outputFileName), theme, (err) =>
 		{
 			if (err)
 				console.error("Couldn't write file", err);
