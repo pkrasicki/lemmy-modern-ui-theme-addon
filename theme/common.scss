@@ -93,7 +93,8 @@ main[role=main], // list of posts on the main page
 .col-12.col-md-8.mb-3 > .post-listing:first-child, // user post (0.17)
 .modlog, // (0.18)
 .home-instances, // instance list (0.18)
-.communities // (0.18)
+.legal, // (0.18)
+.communities // list of communities (0.18.1-rc.7)
 {
 	@extend .card;
 }
@@ -113,6 +114,13 @@ aside .btn-secondary
 
 // comments container in user post
 div.col-12.col-md-8.mb-3 > div:not([class]):last-child
+{
+	@extend .card;
+	@extend .p-2;
+}
+
+// comments container in user post (0.18.1-rc.7)
+main.col-12.col-md-8.col-lg-9.mb-3 > div:not([class]):last-child
 {
 	@extend .card;
 	@extend .p-2;
@@ -163,7 +171,7 @@ ul.comments.border-top
 }
 
 // communities - search (0.18)
-main .search
+.search
 {
 	@extend .card;
 }
@@ -189,6 +197,24 @@ form[id^=comment-form-]
 	& .btn-secondary:nth-child(2), .btn-secondary:nth-child(3)
 	{
 		@include secondary-button-to-outline;
+	}
+}
+
+.comment-form // reply form (0.18.1-rc.7)
+{
+	// preview button
+	& .btn-secondary:nth-child(3)
+	{
+		@include secondary-button-to-outline;
+	}
+
+	&:not(.post-comment-container)
+	{
+		// cancel button
+		& .btn-secondary:nth-child(4)
+		{
+			@include secondary-button-to-outline;
+		}
 	}
 }
 
