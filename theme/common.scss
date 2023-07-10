@@ -94,7 +94,11 @@ main[role=main], // list of posts on the main page
 .modlog, // (0.18)
 .home-instances, // instance list (0.18)
 .legal, // (0.18)
-.communities // list of communities (0.18.1-rc.7)
+.communities, // list of communities (0.18.1)
+.login, // (0.18)
+.inbox, // (0.18)
+.search, // communities - search (0.18)
+.home-signup // (0.18)
 {
 	@extend .card;
 }
@@ -177,12 +181,6 @@ ul.comments.border-top
 	border-left-color: transparent !important; // make it invisible
 }
 
-// communities - search (0.18)
-.search
-{
-	@extend .card;
-}
-
 // communities - table
 #community_table
 {
@@ -225,7 +223,15 @@ form[id^=comment-form-]
 	}
 }
 
-.modlog, .home-instances
+.modlog,
+.home-instances,
+.login,
+.person-profile .person-listing,
+.communities,
+.search,
+.inbox,
+.legal,
+.home-signup
 {
 	@extend .pt-2;
 }
