@@ -1,4 +1,4 @@
-:root
+:root, div#app
 {
 	--custom-primary: #49ce9d;
 	--custom-primary-light: #4fdda9;
@@ -31,6 +31,22 @@ a:not(.btn)
 			color: var(--custom-primary-light) !important;
 		}
 	}
+}
+
+// fix for 0.18.2
+.btn-secondary, .btn-outline-secondary
+{
+	--bs-btn-color: white;
+	--bs-btn-hover-color: white;
+	--bs-btn-active-color: white;
+	--bs-btn-disabled-color: rgba(255, 255, 255, 0.5);
+}
+
+// fix for 0.18.2
+.text-bg-secondary
+{
+	background-color: var(--custom-tabs-color) !important;
+	color: white !important;
 }
 
 .btn-secondary
