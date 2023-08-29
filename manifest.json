@@ -198,7 +198,8 @@
 				"*://lemmy.thebitpros.com/*",
 				"*://feddit.cl/*",
 				"*://geddit.social/*",
-				"*://aussie.zone/*"
+				"*://aussie.zone/*",
+				"*://lemmy.dbzer0.com/*"
 			]
 		}
 	]
