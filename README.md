@@ -6,7 +6,7 @@ Get the addon: https://addons.mozilla.org/firefox/addon/lemmy-modern-ui-theme
 ![main page](screenshots/main-page.png)
 
 ## Using The Theme On Your Lemmy Instance
-In order to use the theme on your instance, [download the CSS files from the Releases page](https://github.com/pkrasicki/lemmy-modern-ui-theme-addon/releases). Then put the chosen files into the `extra_themes` folder or [follow the documentation](https://join-lemmy.org/docs/administration/theming.html).
+To use the theme on your instance, [download the CSS files from the Releases page](https://github.com/pkrasicki/lemmy-modern-ui-theme-addon/releases). Then put the chosen files into the `extra_themes` folder or [follow the documentation](https://join-lemmy.org/docs/administration/theming.html).
 
 ## Building
 ### Prerequisites
