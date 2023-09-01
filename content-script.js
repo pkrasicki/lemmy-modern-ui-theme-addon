@@ -1,3 +1,4 @@
+import commonStyles from "./theme/common.scss";
 import lightTheme from "./theme/light.scss";
 import darkTheme from "./theme/dark.scss";
 
@@ -36,6 +37,10 @@ const applyTheme = (styleSheetsArray) =>
 		return isLitely && isActive;
 	});
 
+	const commonStyle = document.createElement("STYLE");
+	commonStyle.innerText = commonStyles;
+	document.body.prepend(commonStyle);
+
 	const themeStyles = isLightTheme ? lightTheme : darkTheme;
 
 	const style = document.createElement("STYLE");
@@ -45,6 +50,12 @@ const applyTheme = (styleSheetsArray) =>
 
 const main = () =>
 {
+	const documentDescription = document.querySelector('meta[name="Description"]')?.content;
+	const isLemmyInstance = documentDescription == "Lemmy";
+
+	if (!isLemmyInstance)
+		return;
+
 	const styleSheetsArray = [...document.styleSheets];
 
 	// if styles haven't loaded yet, wait a bit and try again
