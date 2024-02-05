@@ -83,3 +83,18 @@ a:not(.btn)
 		background-color: var(--custom-main-bg-color);
 	}
 }
+
+// tables (0.19.3)
+.table
+{
+	--bs-table-color: #fff;
+	--bs-table-hover-color: #fff;
+}
+
+// code blocks with syntax highlighting (0.19.3)
+code.hljs
+{
+	color: #99a0ac;
+	background: #171717;
+	filter: brightness(1.5) saturate(0.8);
+}
