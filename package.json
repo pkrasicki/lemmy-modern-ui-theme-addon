@@ -10,7 +10,8 @@
     "build-css-dark": "sass --no-source-map ./theme/dark.scss ./dist/_dark.css",
     "build-theme": "npm run build-css-light && npm run build-css-dark && npm run build-css-common && node ./tools/build-theme.js",
     "build-addon": "zip -r -FS lemmy-modern-ui-addon.zip 'manifest.json' 'LICENSE' 'dist/content-script.js'",
-    "build": "webpack && npm run build-css-common && npm run build-addon"
+    "build": "webpack && npm run build-css-common && npm run build-addon",
+    "archive": "git archive -o lemmy-modern-ui-addon-source.zip HEAD"
   },
   "repository": {
     "type": "git",
