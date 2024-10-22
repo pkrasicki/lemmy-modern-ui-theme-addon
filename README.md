@@ -40,8 +40,13 @@ The following files will appear in the `dist` folder:
 
 ## Screenshots
 
-![post 1](screenshots/post1.png)
+![community](screenshots/community.png)
 
-![post 2](screenshots/post2.png)
+![post](screenshots/post.png)
 
 ![dark theme](screenshots/dark-theme.png)
+
+## Donate
+If you would like to donate some Monero, you can do it using the following address:
+
+`89MpdQJqV6G5XarB9hFJ8Mb8Bx4V4Gf3YEkEsg6L5WCLBUHM6TW8KSPbwG6DyUqJdEgGZsPZ4k6cTAMnc6rMyReZ9KPd2TG`
