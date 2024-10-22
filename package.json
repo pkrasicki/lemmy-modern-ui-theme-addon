@@ -2,6 +2,7 @@
   "name": "lemmy-modern-ui-theme",
   "version": "1.0.0",
   "description": "This Firefox extension replaces the CSS styles on Lemmy instances to create a modern looking theme.",
+  "private": true,
   "main": "content-script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,6 +11,7 @@
     "build-css-dark": "sass --no-source-map ./theme/dark.scss ./dist/_dark.css",
     "build-theme": "npm run build-css-light && npm run build-css-dark && npm run build-css-common && node ./tools/build-theme.js",
     "build-addon": "zip -r -FS lemmy-modern-ui-addon.zip 'manifest.json' 'LICENSE' 'dist/content-script.js'",
+    "build-release": "webpack --mode production --node-env production && npm run build-css-common && npm run build-addon",
     "build": "webpack && npm run build-css-common && npm run build-addon",
     "archive": "git archive -o lemmy-modern-ui-addon-source.zip HEAD"
   },
@@ -23,7 +25,7 @@
   "bugs": {
     "url": "https://github.com/pkrasicki/lemmy-modern-ui-theme-addon/issues"
   },
-  "homepage": "https://github.com/pkrasicki/lemmy-modern-ui-theme-addon#readme",
+  "homepage": "https://addons.mozilla.org/firefox/addon/lemmy-modern-ui-theme",
   "devDependencies": {
     "css-loader": "^6.8.1",
     "sass": "^1.63.6",

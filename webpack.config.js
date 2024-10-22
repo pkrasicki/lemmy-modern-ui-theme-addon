@@ -3,7 +3,8 @@ const path = require('path');
 module.exports =
 {
 	entry: "./content-script.js",
-	mode: "production",
+	mode: "development",
+	devtool: process.env.NODE_ENV == "production" ? "source-map" : "inline-source-map",
 	output:
 	{
 		path: path.resolve(__dirname, "dist"),

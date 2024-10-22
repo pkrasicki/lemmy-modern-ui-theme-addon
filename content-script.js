@@ -28,6 +28,10 @@ const applyTheme = (styleSheetsArray) =>
 {
 	const isLightTheme = styleSheetsArray.some((sheet) =>
 	{
+		// this fixes a bug in Lemmy 0.19.5 where one of the stylesheets has href set to null, we just have to ignore it
+		if (sheet.href == null)
+			return false;
+
 		const url = new URL(sheet.href);
 		const themeNameRegex = /\/litely.*\.css$/;
 		const isLitely = themeNameRegex.test(url.pathname);
